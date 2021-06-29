@@ -10,17 +10,13 @@ export default function App() {
     const response = await fetch("https://api.quotable.io/random");
     const data = await response.json();
     setData(data);
-    console.log(`${data.content} —${data.author}`);
   };
   useEffect(() => {
     randomQuote();
-    // function updateQuote() {
-    //   randomQuote();
-    //   console.log("hello");
-    // }
   }, []);
-  // // Do not render until the first quote is loaded
-  // if (!data) return null;
+
+  // Do not render until the first quote is loaded
+  if (!data) return null;
   return (
     <div className="App bg-primary w-75 mx-auto mt-5">
       <Card id="quote-box">
